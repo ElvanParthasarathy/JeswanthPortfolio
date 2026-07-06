@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-tamil: 'Mukta Malar', sans-serif;
+  
+  --color-editor-bg: #181818;
+  --color-editor-panel: #252526;
+  --color-editor-accent: #2D8CFF;
+  --color-editor-red: #E74C3C;
+  --color-editor-text: #E0E0E0;
+  --color-editor-muted: #858585;
+}
+
+body {
+  background-color: var(--color-editor-bg);
+  color: var(--color-editor-text);
+  overflow-x: hidden;
+  font-family: var(--font-primary);
+}
+
+/* CUSTOM CURSOR STYLES (Keep the smooth dot but style it red) */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-editor-red);
+}
+
+/* UTILITIES */
+.editor-panel {
+  background-color: var(--color-editor-panel);
+  border: 1px solid #333;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.timeline-track {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 49px,
+    rgba(133, 133, 133, 0.2) 49px,
+    rgba(133, 133, 133, 0.2) 50px
+  );
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+/* End of global styles */

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "SK Mashup",
+    "theatre": "Tirupur MGB Grand Cinema",
+    "event": "Madharasi Movie Screening",
+    "video_url": "/videos/sk_mashup.webm",
+    "date": "2026"
+  },
+  {
+    "id": 2,
+    "title": "Vijay New Year Mashup",
+    "theatre": "Cleopatra Tuticorin & Ritzy Madurai",
+    "event": "New Year Celebration",
+    "video_url": "/videos/new_year_mashup.webm",
+    "date": "2026"
+  },
+  {
+    "id": 3,
+    "title": "Vijay B'day Mashup 2025",
+    "theatre": "Chennai Ganga Cinemas",
+    "event": "Birthday Celebration",
+    "video_url": "/videos/bday_2025.webm",
+    "date": "2025"
+  },
+  {
+    "id": 4,
+    "title": "Vijay B'day Mashup 2026 + Sachin Re-release",
+    "theatre": "Screened in 5+ Theatres (Ganga, Anand, Ritzy, Sandhya, Ega)",
+    "event": "Mega Birthday Celebration",
+    "video_url": "/videos/bday_2026.webm",
+    "date": "2026"
+  }
+]

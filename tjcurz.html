@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJ Cutz | Jeswanth S - Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Syncopate', 'sans-serif'],
+                        body: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'neon-accent': '#C6F432', /* Acid Green Accent */
+                        'void': '#050505',
+                        'charcoal': '#121212'
+                    },
+                    cursor: {
+                        'none': 'none',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            cursor: none; /* Hides default cursor */
+            overflow-x: hidden;
+        }
+
+        /* CUSTOM CURSOR STYLES */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #C6F432;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        /* Hover state for cursor */
+        body.hovering .cursor-outline {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(198, 244, 50, 0.1);
+            border-color: #C6F432;
+            backdrop-filter: blur(2px);
+        }
+
+        /* UTILITIES */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .placeholder-zone {
+            background: repeating-linear-gradient(
+                45deg,
+                #1a1a1a,
+                #1a1a1a 10px,
+                #222 10px,
+                #222 20px
+            );
+            border: 2px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-family: monospace;
+            text-align: center;
+            padding: 2rem;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-neon-accent selection:text-void">
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="fixed w-full top-0 z-50 px-6 py-6 mix-blend-difference">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-display font-bold tracking-widest hover-trigger">TJ CUTZ.</a>
+            <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest font-bold">
+                <a href="#work" class="hover-trigger hover:text-neon-accent transition-colors">Screenings</a>
+                <a href="#about" class="hover-trigger hover:text-neon-accent transition-colors">Profile</a>
+                <a href="#contact" class="hover-trigger hover:text-neon-accent transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40 placeholder-zone border-none">
+            <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+            Insert Showreel Video Loop Here<br>
+            (Autoplay, Muted, Loop)
+        </div>
+        
+        <div class="z-10 text-center space-y-4 mix-blend-exclusion">
+            <h2 class="text-neon-accent tracking-[0.5em] text-sm md:text-base animate-slide-up">EDITED BY JESWANTH S</h2>
+            <h1 class="text-6xl md:text-9xl font-display font-bold uppercase leading-none tracking-tighter">
+                <span class="block reveal-text">THE</span>
+                <span class="block reveal-text text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">TJ CUTZ</span>
+                <span class="block reveal-text">EFFECT.</span>
+            </h1>
+        </div>
+
+        <div class="absolute bottom-10 animate-bounce">
+            <p class="text-xs tracking-widest opacity-50">SCROLL FOR THEATRE SCREENINGS</p>
+        </div>
+    </header>
+
+    <section id="work" class="py-32 px-6 bg-void relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-end justify-between mb-20">
+                <h2 class="text-5xl md:text-7xl font-display font-bold text-white">THEATRE<br><span class="text-neon-accent">SCREENINGS</span></h2>
+                <p class="hidden md:block text-gray-400 max-w-xs text-right">My edits don't just stay on phones. They are celebrated in theatres across Tamil Nadu.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                
+                <div class="group project-card cursor-none">
+                    <div class="aspect-video w-full placeholder-zone rounded-lg overflow-hidden relative hover-trigger">
+                         <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+                         Insert Video/Img of Thalapathy Bday Celebration
+                        <div class="absolute inset-0 bg-neon-accent/0 group-hover:bg-neon-accent/10 transition-all duration-500"></div>
+                    </div>
+                    <div class="mt-4 flex justify-between items-start border-t border-gray-800 pt-4">
+                        <div>
+                            <h3 class="text-2xl font-bold uppercase">Thalapathy B'day Mashup</h3>
+                            <p class="text-sm text-gray-400 mt-1">2024</p>
+                        </div>
+                        <span class="text-xs border border-neon-accent text-neon-accent px-2 py-1 rounded-full">Ganga Cinemas, Chennai</span>
+                    </div>
+                </div>
+
+                <div class="group project-card cursor-none md:mt-24">
+                    <div class="aspect-video w-full placeholder-zone rounded-lg overflow-hidden relative hover-trigger">
+                        <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+                        Insert Video/Img of New Year Celebration
+                        <div class="absolute inset-0 bg-neon-accent/0 group-hover:bg-neon-accent/10 transition-all duration-500"></div>
+                    </div>
+                    <div class="mt-4 flex justify-between items-start border-t border-gray-800 pt-4">
+                        <div>
+                            <h3 class="text-2xl font-bold uppercase">New Year Celebration</h3>
+                            <p class="text-sm text-gray-400 mt-1">2025</p>
+                        </div>
+                        <span class="text-xs border border-neon-accent text-neon-accent px-2 py-1 rounded-full">Cleopatra Multiplex, Tuticorin</span>
+                    </div>
+                </div>
+
+                <div class="group project-card cursor-none">
+                    <div class="aspect-video w-full placeholder-zone rounded-lg overflow-hidden relative hover-trigger">
+                        <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+                        Insert Video/Img of SK Mashup
+                        <div class="absolute inset-0 bg-neon-accent/0 group-hover:bg-neon-accent/10 transition-all duration-500"></div>
+                    </div>
+                    <div class="mt-4 flex justify-between items-start border-t border-gray-800 pt-4">
+                        <div>
+                            <h3 class="text-2xl font-bold uppercase">SK Mashup (Madharasi)</h3>
+                            <p class="text-sm text-gray-400 mt-1">Next Screening</p>
+                        </div>
+                        <span class="text-xs border border-neon-accent text-neon-accent px-2 py-1 rounded-full">MGB Cinemas, Tirupur</span>
+                    </div>
+                </div>
+
+                <div class="group project-card cursor-none md:mt-24">
+                    <div class="aspect-video w-full placeholder-zone rounded-lg overflow-hidden relative hover-trigger">
+                        <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+                        Insert Jana Nayagan Mashup/Trailer
+                        <div class="absolute inset-0 bg-neon-accent/0 group-hover:bg-neon-accent/10 transition-all duration-500"></div>
+                    </div>
+                    <div class="mt-4 flex justify-between items-start border-t border-gray-800 pt-4">
+                        <div>
+                            <h3 class="text-2xl font-bold uppercase">Jana Nayagan Launch</h3>
+                            <p class="text-sm text-gray-400 mt-1">Trailer Launch Event</p>
+                        </div>
+                        <span class="text-xs border border-neon-accent text-neon-accent px-2 py-1 rounded-full">Ritzy Cinemas</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-charcoal relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-neon-accent/5 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-neon-accent/10 blur-[100px] rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <div class="md:col-span-5 relative">
+                <div class="aspect-[3/4] placeholder-zone rounded-sm rotate-3 hover:rotate-0 transition-transform duration-500 hover-trigger border-neon-accent/20">
+                    <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+                    INSERT PHOTO OF JESWANTH S
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 border border-neon-accent/30 flex items-center justify-center p-2">
+                    <p class="text-[10px] text-neon-accent font-mono text-center">EST.<br>2020</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-7 space-y-8">
+                <h2 class="text-4xl md:text-6xl font-display font-bold uppercase">
+                    I AM <span class="text-neon-accent underline decoration-wavy decoration-2 underline-offset-8">JESWANTH S</span>
+                </h2>
+                
+                <div class="space-y-6 text-lg text-gray-300 font-light leading-relaxed">
+                    <div class="placeholder-zone p-4 border-l-4 border-neon-accent text-left bg-black/20" style="align-items: flex-start; flex-direction: row;">
+                        <p class="text-white text-base">
+                            "The creator behind the brand <strong>TJ CUTZ</strong>."
+                        </p>
+                    </div>
+                    <p>
+                        My journey started in 2020 editing on a mobile phone. By 2023, I made my mark with a theatre screening in Hosur.
+                    </p>
+                    <p>
+                        Since transitioning to PC last year, I've mastered the art of the Mashup. I combine the flow of <strong>Premiere Pro</strong> with the advanced effects of <strong>CapCut PC</strong> to create visuals that get fans screaming in theatres.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold tracking-widest uppercase mb-4 text-gray-500">Software Arsenal</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-6 py-3 glass-panel rounded-full text-sm font-bold hover:bg-neon-accent hover:text-black transition-colors cursor-none hover-trigger border border-neon-accent">CAPCUT PC (PRO)</span>
+                        <span class="px-6 py-3 glass-panel rounded-full text-sm font-bold hover:bg-neon-accent hover:text-black transition-colors cursor-none hover-trigger">PREMIERE PRO (ASSEMBLY)</span>
+                        <span class="px-6 py-3 glass-panel rounded-full text-sm font-bold hover:bg-neon-accent hover:text-black transition-colors cursor-none hover-trigger text-gray-500">MOBILE EDITING (LEGACY)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="min-h-screen flex flex-col justify-between py-20 px-6 bg-void relative">
+        <div class="max-w-7xl mx-auto w-full h-full flex flex-col justify-center items-center text-center flex-grow">
+            
+            <p class="text-neon-accent tracking-widest mb-6 animate-pulse">WANT TO SCREEN A MASHUP?</p>
+            <h2 class="text-5xl md:text-8xl font-display font-bold hover-trigger hover:text-stroke-neon transition-all duration-300">
+                <a href="mailto:email@example.com" class="relative group">
+                    LET'S TALK
+                    <span class="absolute -bottom-2 left-0 w-0 h-2 bg-neon-accent transition-all duration-500 group-hover:w-full"></span>
+                </a>
+            </h2>
+
+            <div class="mt-20 w-full max-w-2xl placeholder-zone border-gray-800">
+                <span class="text-neon-accent mb-2">[ INSTRUCTION ]</span>
+                Add Instagram / WhatsApp Link here
+            </div>
+        </div>
+
+        <footer class="w-full flex justify-between items-end border-t border-gray-900 pt-8 text-gray-600 text-sm font-mono">
+            <div>
+                &copy; 2026 TJ CUTZ.<br>CREATED BY JESWANTH S.
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-neon-accent transition-colors">INSTAGRAM</a>
+                <a href="#" class="hover:text-neon-accent transition-colors">YOUTUBE</a>
+            </div>
+        </footer>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // REGISTER SCROLL TRIGGER
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. CUSTOM CURSOR LOGIC
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline follows with delay (GSAP for smoothness)
+            gsap.to(cursorOutline, {
+                x: posX,
+                y: posY,
+                duration: 0.15,
+                ease: "power2.out"
+            });
+        });
+
+        // Hover Effect for Cursor
+        const hoverTriggers = document.querySelectorAll('.hover-trigger');
+        hoverTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => {
+                document.body.classList.add('hovering');
+            });
+            trigger.addEventListener('mouseleave', () => {
+                document.body.classList.remove('hovering');
+            });
+        });
+
+        // 2. TEXT REVEAL ANIMATIONS
+        gsap.from(".reveal-text", {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out",
+            delay: 0.5
+        });
+
+        // 3. PROJECT CARD FADE IN
+        const projects = document.querySelectorAll('.project-card');
+        projects.forEach((project, i) => {
+            gsap.from(project, {
+                scrollTrigger: {
+                    trigger: project,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i % 2 === 0 ? 0 : 0.2 // Stagger effect for grid
+            });
+        });
+
+        // 4. ABOUT SECTION PARALLAX
+        gsap.from("#about .placeholder-zone", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 70%",
+            },
+            rotation: 10,
+            scale: 0.8,
+            opacity: 0,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+
+    </script>
+</body>
+</html>

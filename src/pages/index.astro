@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Screenings from '../components/Screenings.astro';
+import About from '../components/About.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+---
+
+<Layout title="TJ Cutz | Jeswanth S - Portfolio">
+	<Navbar />
+	<Hero />
+	<Screenings />
+	<About />
+	<ContactFooter />
+</Layout>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	const sections = document.querySelectorAll('section[data-bg-color], header[data-bg-color]');
+	sections.forEach((section) => {
+		ScrollTrigger.create({
+			trigger: section,
+			start: "top 50%",
+			end: "bottom 50%",
+			onEnter: () => gsap.to('body', {
+				backgroundColor: (section as HTMLElement).dataset.bgColor,
+				color: (section as HTMLElement).dataset.textColor,
+				duration: 0.8,
+				ease: "power2.out"
+			}),
+			onEnterBack: () => gsap.to('body', {
+				backgroundColor: (section as HTMLElement).dataset.bgColor,
+				color: (section as HTMLElement).dataset.textColor,
+				duration: 0.8,
+				ease: "power2.out"
+			})
+		});
+	});
+</script>
