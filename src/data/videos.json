@@ -1,15 +1,6 @@
 [
   {
     "id": 1,
-    "title": "Sachien Re-release",
-    "theatre": "Chennai Ega Cinemas",
-    "event": "Re-release Celebration",
-    "video_url": "/videos/sachein_mashup_web_opt.mp4",
-    "poster_url": "/videos/sachein_mashup_web_poster.jpg",
-    "date": "2026"
-  },
-  {
-    "id": 2,
     "title": "Vijay Birthday Mashup 2026",
     "theatre": "Screened in Russia, Chennai Ganga, Kangeyam Anand, Madurai Ritzy, Karnataka Sandhya, Tirunelveli Grand Muthram, Gobichettipalayam Jayam",
     "event": "Mega Birthday Celebration",
@@ -18,16 +9,7 @@
     "date": "2026"
   },
   {
-    "id": 3,
-    "title": "Vijay B'day Mashup 2025",
-    "theatre": "Chennai Ganga Cinemas",
-    "event": "Birthday Celebration",
-    "video_url": "/videos/vijay_bday_2025_web_opt.mp4",
-    "poster_url": "/videos/vijay_bday_2025_web_poster.jpg",
-    "date": "2025"
-  },
-  {
-    "id": 4,
+    "id": 2,
     "title": "Madharasi SK Mashup",
     "theatre": "Tirupur MGB Grand Cinema",
     "event": "Madharasi Movie Screening",
@@ -36,12 +18,39 @@
     "date": "2026"
   },
   {
-    "id": 5,
+    "id": 3,
     "title": "New Year Celebration VJ Mashup 2026",
     "theatre": "Cleopatra Tuticorin & Ritzy Madurai",
     "event": "New Year Celebration",
     "video_url": "/videos/vijay_newyear_mashup_web_opt.mp4",
     "poster_url": "/videos/vijay_newyear_mashup_web_poster.jpg",
     "date": "2026"
+  },
+  {
+    "id": 4,
+    "title": "Sachien Re-release",
+    "theatre": "Chennai Ega Cinemas",
+    "event": "Re-release Celebration",
+    "video_url": "/videos/sachein_mashup_web_opt.mp4",
+    "poster_url": "/videos/sachein_mashup_web_poster.jpg",
+    "date": "2025"
+  },
+  {
+    "id": 5,
+    "title": "Vijay B'day Mashup 2025",
+    "theatre": "Chennai Ganga Cinemas",
+    "event": "Birthday Celebration",
+    "video_url": "/videos/vijay_bday_2025_web_opt.mp4",
+    "poster_url": "/videos/vijay_bday_2025_web_poster.jpg",
+    "date": "2025"
+  },
+  {
+    "id": 6,
+    "title": "VJ Mashup",
+    "theatre": "Ulyanovsk, Russia",
+    "event": "Screened in Russia Ulyanovsk",
+    "video_url": "/videos/vj_russia_mashup_web_opt.mp4",
+    "poster_url": "/videos/vj_russia_mashup_web_poster.jpg",
+    "date": "2025"
   }
 ]
