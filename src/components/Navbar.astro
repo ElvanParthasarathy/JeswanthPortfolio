@@ -2,8 +2,14 @@
 ---
 <div class="fixed w-full top-6 z-50 flex justify-center px-4 pointer-events-none">
     <nav class="film-pill-solid px-6 py-3 flex items-center gap-6 md:gap-8 pointer-events-auto">
-        <a href="#" class="text-film-text font-bold tracking-tight hover:text-film-accent transition-colors flex items-center gap-2 font-primary">
+        <button id="mobileMenuBtn" class="md:hidden text-film-accent hover:text-film-dark transition-colors cursor-pointer flex items-center justify-center">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+        </button>
+        <a href="#" class="text-film-text font-bold tracking-tight hover:text-film-accent transition-colors flex items-center gap-2 font-primary hidden md:flex">
             <svg class="w-5 h-5 text-film-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+            <span class="text-sm" data-i18n="hero.name">JESWANTH S</span>
+        </a>
+        <a href="#" class="text-film-text font-bold tracking-tight hover:text-film-accent transition-colors flex items-center gap-2 font-primary md:hidden">
             <span class="text-sm" data-i18n="hero.name">JESWANTH S</span>
         </a>
         <div class="h-4 w-[1px] bg-film-dark/20 hidden md:block"></div>
@@ -30,19 +36,64 @@
             <span class="lang-ta_latn text-film-muted">/</span>
             <span class="lang-ta_latn text-film-text glow-retro-text">TGL</span>
         </button>
-        <div class="flex items-center gap-2 pl-4 border-l border-white/30">
+        <div class="flex items-center gap-2 pl-4 border-l border-film-dark/20 hidden sm:flex">
             <div class="w-2 h-2 rounded-full bg-film-accent animate-pulse shadow-[0_0_8px_var(--color-film-accent)] glow-retro"></div>
             <span class="text-xs text-film-dark font-mono tracking-widest uppercase">Live</span>
         </div>
     </nav>
 </div>
 
+<!-- Mobile Side Panel -->
+<div id="mobileSidePanel" class="fixed inset-y-0 left-0 w-64 bg-[#E9EDC9] border-r border-film-dark/10 z-[100] transform -translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto flex flex-col pt-24 px-8 shadow-2xl">
+    <button id="closeMenuBtn" class="absolute top-6 right-6 text-film-dark hover:text-film-accent transition-colors cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    
+    <div class="flex flex-col gap-8">
+        <a href="#about" class="mobile-link text-lg font-mono tracking-widest text-film-dark hover:text-film-accent transition-colors uppercase font-bold" data-i18n="nav.about">About</a>
+        <a href="#projects" class="mobile-link text-lg font-mono tracking-widest text-film-dark hover:text-film-accent transition-colors uppercase font-bold" data-i18n="nav.work">Work</a>
+        <a href="#contact" class="mobile-link text-lg font-mono tracking-widest text-film-dark hover:text-film-accent transition-colors uppercase font-bold" data-i18n="nav.contact">Contact</a>
+    </div>
+</div>
+
+<!-- Overlay -->
+<div id="mobileOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"></div>
+
 <script>
-    const btn = document.getElementById('langToggleBtn');
-    if (btn) {
-        btn.addEventListener('click', () => {
+    const langBtn = document.getElementById('langToggleBtn');
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
             // @ts-ignore
             if (window.toggleLanguage) window.toggleLanguage();
         });
     }
+
+    // Mobile Menu Logic
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileSidePanel = document.getElementById('mobileSidePanel');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMenu() {
+        mobileSidePanel?.classList.remove('-translate-x-full');
+        mobileOverlay?.classList.remove('opacity-0', 'pointer-events-none');
+        mobileOverlay?.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        mobileSidePanel?.classList.add('-translate-x-full');
+        mobileOverlay?.classList.remove('opacity-100', 'pointer-events-auto');
+        mobileOverlay?.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn?.addEventListener('click', openMenu);
+    closeMenuBtn?.addEventListener('click', closeMenu);
+    mobileOverlay?.addEventListener('click', closeMenu);
+    
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
 </script>
