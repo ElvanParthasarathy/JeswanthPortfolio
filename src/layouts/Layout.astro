@@ -23,12 +23,12 @@ const { title } = Astro.props;
 	</head>
 	<body class="selection:bg-film-accent selection:text-white relative bg-film-bg min-h-screen">
 		<!-- Global Vintage Grid Background -->
-		<div class="fixed inset-0 z-0 opacity-15 pointer-events-none" style="background-size: 40px 40px; background-image: linear-gradient(to right, var(--color-film-dark) 1px, transparent 1px), linear-gradient(to bottom, var(--color-film-dark) 1px, transparent 1px);"></div>
+		<div class="absolute inset-0 z-0 opacity-15 pointer-events-none" style="background-size: 40px 40px; background-image: linear-gradient(to right, var(--color-film-dark) 1px, transparent 1px), linear-gradient(to bottom, var(--color-film-dark) 1px, transparent 1px);"></div>
 
 		<div class="film-grain"></div>
 
 		<!-- Global Scattered SVG Decorations -->
-		<div class="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-10">
+		<div class="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-10">
 			<!-- TOP LEFT -->
 			<svg class="absolute top-[5%] -left-10 w-64 h-64 text-film-dark animate-[spin_40s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="0.5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><path d="M12 7v10M7 12h10"></path></svg>
 			<!-- TOP RIGHT -->
