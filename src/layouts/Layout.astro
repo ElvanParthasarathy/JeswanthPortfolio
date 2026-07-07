@@ -78,12 +78,9 @@ const { title } = Astro.props;
 			});
 
 			// Hydrate on load
-			if(savedLang === 'ta') {
-				// Use setTimeout to ensure DOM is fully parsed
-				setTimeout(() => {
-					document.dispatchEvent(new CustomEvent('languageChanged', { detail: 'ta' }));
-				}, 50);
-			}
+			setTimeout(() => {
+				document.dispatchEvent(new CustomEvent('languageChanged', { detail: savedLang }));
+			}, 50);
 
 			// Custom Cursor Logic
 			const cursorDot = document.querySelector('.cursor-dot') as HTMLElement;
