@@ -19,21 +19,21 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-tamil: 'ElvanSans', sans-serif; /* ElvanSans supports Tamil */
   
-  /* Warm Retro Film Tone Colors */
-  --color-film-bg: #EAE6DF;       /* Sand/light cream */
-  --color-film-panel: #D8D2C4;    /* Slightly darker sand */
-  --color-film-dark: #3A3226;     /* Deep brown */
-  --color-film-text: #2B251A;     /* Very dark brown/almost black */
-  --color-film-accent: #C46D3B;   /* Warm burnt orange/amber */
-  --color-film-muted: #8E8271;    /* Earthy grayish brown */
+  /* Warm Retro Film Tone Colors - Slightly Darker Sand */
+  --color-film-bg: #D4C9B6;       /* Warm vintage sand, slightly darker than before */
+  --color-film-panel: #C2B6A1;    /* Slightly darker than bg for contrast */
+  --color-film-dark: #2B251A;     /* Deep retro brown */
+  --color-film-text: #1A160F;     /* Very dark brown/almost black */
+  --color-film-accent: #A84E1C;   /* Muted burnt orange/amber (no neon) */
+  --color-film-muted: #7A6F5D;    /* Earthy grayish brown */
 }
 
 @layer utilities {
   .glow-retro {
-    box-shadow: 0 0 15px rgba(230, 126, 34, 0.4), 0 0 30px rgba(230, 126, 34, 0.2);
+    /* Removed glow */
   }
   .glow-retro-text {
-    text-shadow: 0 0 8px rgba(230, 126, 34, 0.6), 0 0 16px rgba(230, 126, 34, 0.3);
+    /* Removed glow */
   }
 }
 
