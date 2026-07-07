@@ -6,7 +6,14 @@
     <div class="absolute inset-0 z-0 opacity-15" style="background-size: 40px 40px; background-image: linear-gradient(to right, var(--color-film-dark) 1px, transparent 1px), linear-gradient(to bottom, var(--color-film-dark) 1px, transparent 1px);"></div>
 
     <!-- Main Typography Solid Panel -->
-    <div class="z-10 text-center space-y-6 film-panel-solid p-6 sm:p-12 md:p-20 relative max-w-4xl mx-4">
+    <div class="z-10 text-center space-y-6 film-panel-solid p-6 sm:p-12 md:p-20 relative max-w-4xl mx-4 overflow-hidden">
+        <!-- Hero Background Decor -->
+        <div class="absolute inset-0 pointer-events-none opacity-5 z-0">
+            <!-- Film Reel -->
+            <svg class="absolute -top-10 -right-10 w-48 h-48 text-film-dark animate-[spin_30s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><path d="M12 7v10M7 12h10"></path></svg>
+            <!-- Clapperboard -->
+            <svg class="absolute -bottom-8 -left-8 w-40 h-40 text-film-dark -rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M4 6h16v12H4z"></path><path d="M4 6l4-4 4 4 4-4 4 4"></path><path d="M4 10h16"></path></svg>
+        </div>
         <!-- Decorative Film Elements removed for Layout-level placement -->
 
         <h2 class="text-film-accent tracking-[0.3em] text-xs md:text-sm font-mono uppercase font-bold reveal-text z-10" data-i18n="hero.role">
