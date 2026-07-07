@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvan Sans - Font Preview</title>
+    <style>
+        /* Define Font Faces */
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-Regular.ttf');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-Italic.ttf');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-Medium.ttf');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-MediumItalic.ttf');
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-SemiBold.ttf');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-SemiBoldItalic.ttf');
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-Bold.ttf');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Elvan Sans';
+            src: url('../fonts/ttf/ElvanSans-BoldItalic.ttf');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .controls input[type="range"] {
+            width: 300px;
+        }
+
+        .preview-section {
+            font-family: 'Elvan Sans', sans-serif;
+            margin-bottom: 50px;
+        }
+
+        .style-label {
+            font-family: sans-serif;
+            font-size: 14px;
+            color: #888;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .text-block {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .text-block p {
+            margin: 10px 0;
+        }
+
+        .mixed-text {
+            display: flex;
+            gap: 20px;
+        }
+
+        .mixed-text>div {
+            flex: 1;
+            padding: 20px;
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        /* Weights & Styles Classes */
+        .w400 {
+            font-weight: 400;
+        }
+
+        .w400-i {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .w500 {
+            font-weight: 500;
+        }
+
+        .w500-i {
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .w600 {
+            font-weight: 600;
+        }
+
+        .w600-i {
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .w700 {
+            font-weight: 700;
+        }
+
+        .w700-i {
+            font-weight: 700;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Elvan Sans Preview</h1>
+
+        <div class="controls">
+            <label for="fontSize">Font Size: <span id="sizeValue">24px</span></label>
+            <input type="range" id="fontSize" min="12" max="72" value="24">
+        </div>
+
+        <div id="previewContainer">
+            <!-- JavaScript will populate this -->
+        </div>
+
+    </div>
+
+    <script>
+        const sizeSlider = document.getElementById('fontSize');
+        const sizeValue = document.getElementById('sizeValue');
+        const previewContainer = document.getElementById('previewContainer');
+
+        const styles = [
+            { label: 'Regular (400)', class: 'w400' },
+            { label: 'Italic (400)', class: 'w400-i' },
+            { label: 'Medium (500)', class: 'w500' },
+            { label: 'Medium Italic (500)', class: 'w500-i' },
+            { label: 'SemiBold (600)', class: 'w600' },
+            { label: 'SemiBold Italic (600)', class: 'w600-i' },
+            { label: 'Bold (700)', class: 'w700' },
+            { label: 'Bold Italic (700)', class: 'w700-i' }
+        ];
+
+        const englishText = "Elvan Sans is a modern typeface designed for seamless typography and excellent readability across all digital platforms. The quick brown fox jumps over the lazy dog. 0123456789 !@#$%^&*()";
+
+        const tamilText = `
+            <div style="font-size: 0.85em; line-height: 1.8;">
+                <strong>உயிரெழுத்துக்கள் (Vowels):</strong> அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ ஃ<br>
+                <strong>மெய்யெழுத்துக்கள் (Consonants):</strong> க் ங் ச் ஞ் ட் ண் த் ந் ப் ம் ய் ர் ல் வ் ழ் ள் ற் ன்<br>
+                <strong>உயிர்மெய் (Vowel-Consonants):</strong><br>
+                க கா கி கீ கு കൂ கெ கே கை கொ கோ கௌ<br>
+                ச சா சி சீ சு சூ செ சே சை சொ சோ சௌ<br>
+                த தா தி தீ து தூ தெ தே தை தொ தோ தௌ<br>
+                <strong>க்ரந்த எழுத்துக்கள் (Grantha):</strong> ஜ் ஷ் ஸ் ஹ் க்ஷ் ஸ்ரீ | ஜ ஷ ஸ ஹ க்ஷ<br>
+                <strong>எண்கள் (Numerals):</strong> ௦ ௧ ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௰ ௱ ௲<br>
+                <strong>Sample:</strong> எலவன் சான்ஸ் ஒரு அழகான நவீன அச்சுமுகமாகும். இது சிறந்த வாசிப்பு அனுபவத்திற்காக வடிவமைக்கப்பட்டுள்ளது.
+            </div>
+        `;
+
+        const mixedPassage = `
+            <strong>Multi-line Mixed Typography Test:</strong><br>
+            Elvan Sans is a versatile font designed to combine English and Tamil (தமிழ்) perfectly. 
+            கல்வி என்பது அறிவின் திறவுகோல் (Education is the key to knowledge). 
+            When typing tall letters like ழ், த், க், or deep loops like மு and னு next to standard English letters (like g, y, j, p, q), the line spacing must feel consistent. 
+            எல்லா மனிதர்களும் சுதந்திரமாகவே பிறக்கின்றனர் (All human beings are born free). 
+            This dense paragraph will automatically wrap in your browser, forcing multiple lines to stack directly on top of each other. 
+            This is the absolute best way to check if the top dots (Pulli) or the bottom loops are getting chopped off, and to verify if the default line height feels comfortable to read.
+            0123456789 - ௦௧௨௩௪௫௬௭௮௯
+            ஒவ்வொருவரும் அவ்வவரது தனிமைத்துவம், குடும்பம், வீடு அல்லது தொடர்புகள் என்பவை சம்பந்தமாக, ஒருதலைப்பட்ட மனப்போக்கான வகையில் தலையிடப்படுவதற்கோ அல்லது அவரது மரியாதை, நன்மதிப்பு என்பவற்றின் மீதான தாக்குதல்களுக்கோ உட்படுத்தலாகாது. அத்தகைய தலையீட்டுக்கு அல்லது தாக்குதல்களுக்கெதிராக ஒவ்வொருவரும் சட்டப் பாதுகாப்புக்கு உரிமையுடையவராவர்.
+சிந்தனைச் சுதந்திரம், மனச்சாட்சிச் சுதந்திரம், மதச் சுதந்திரம் என்பவற்றுக்கு ஒவ்வொருவருக்கும் உரிமையுண்டு. இவ்வுரிமையினுள் ஒருவர் தமது மதத்தை அல்லது நம்பிக்கையை மாற்றுவதற்கான சுதந்திரமும், போதனை, பயில்நெறி, வழிபாடு, பின்பற்றுதல் என்பன மூலமும் தத்தமது மதத்தை அல்லது நம்பிக்கையைத் தனியாகவும், வேறொருவருடன் கூடியும், வெளிப்படையாகவும் தனிப்பட்ட முறையிலும் வெளிப்படுத்துவதற்கான சுதந்திரமும் அடங்கும்.
+கருத்துச் சுதந்திரத்துக்கும் பேச்சுச் சுதந்திரத்துக்கும் எவருக்கும் உரிமையுண்டு. இவ்வுரிமையானது தலையீடின்றிக் கருத்துகளைக் கொண்டிருத்தற்கும், எவ்வூடகம் மூலமும் எல்லைகளைப் பொருட்படுத்தாமலும் தகவலையும் கருத்துக்களையும் நாடுவதற்கும் பெறுவதற்கும் பரப்புவதற்குமான சுதந்திரத்தையும் உள்ளடக்கும்.
+சமுதாயத்தின் உறுப்பினர் என்ற முறையில் ஒவ்வொருவரும் சமூகப் பாதுகாப்புக்கு உரிமையுடையவர். அத்துடன் நாடளாவிய முயற்சி மூலமும் சர்வதேச ஒத்துழைப்பு மூலமும் ஒவ்வொரு நாட்டினதும் அமைப்பு முறைக்கும் வளங்களுக்கும் இயைவான வகையில் ஒவ்வொருவரும் தத்தம் மதிப்புக்கும் தத்தம் ஆளுமையைச் சுதந்திரமான முறையில் வளர்ப்பதற்கும் இன்றியமையாதனவாக வேண்டப்பெறும் பொருளாதார சமூக பண்பாட்டு உரிமைகளைப் பெறுவதற்கும் உரித்துடையவராவர்.
+இளைப்பாறுகைக்கும், ஓய்விற்கும் ஒவ்வொருவரும் உரிமையுடையர். இதனுள் வேலை நேர வரையறை, ஊதியத்துடனான முறைப்பட்ட விடுமுறைகள் அடங்கும்.
+இப்பிரகடனத்தில் எடுத்துக் காட்டப்பட்டுள்ள உரிமைகளும் சுதந்திரங்களும் முழுமையாக எய்தப்படக்கூடிய சமூக, சர்வதேச அமைப்பு முறைமைக்கு ஒவ்வொருவரும் உரித்துடையவராவர்.
+        `;
+
+        function renderPreviews() {
+            previewContainer.innerHTML = '';
+
+            styles.forEach(style => {
+                const section = document.createElement('div');
+                section.className = 'preview-section';
+
+                section.innerHTML = `
+                    <div class="style-label">${style.label}</div>
+                    
+                    <div class="text-block ${style.class}" style="margin-bottom: 20px; line-height: normal;">
+                        ${mixedPassage}
+                    </div>
+
+                    <div class="mixed-text text-block ${style.class}">
+                        <div>
+                            <strong>English:</strong><br>
+                            ${englishText}
+                        </div>
+                        <div>
+                            <strong>Tamil (தமிழ்):</strong><br>
+                            ${tamilText}
+                        </div>
+                    </div>
+                    
+                    <div class="mixed-text text-block ${style.class}">
+                        <div>
+                            <strong>Telugu (తెలుగు):</strong><br>
+                            ఎలవన్ సான்స్ ఒక ఆధునిక టైప్‌ఫేస్. ఇది అతుకులు లేని టైపోగ్రఫీ కోసం రూపొందించబడింది. 0123456789
+                        </div>
+                        <div>
+                            <strong>Malayalam (മലയാളം):</strong><br>
+                            തുടർച്ചയായ ടൈപ്പോഗ്രാഫിക്കും മികച്ച വായനാക്ഷമതയ്ക്കും വേണ്ടി രൂപകൽപ്പന ചെയ്ത ഒരു ആധുനിക ടൈപ്പ്ഫേസാണ് എൽവൻ സാൻസ്. 0123456789
+                        </div>
+                    </div>
+
+                    <div class="mixed-text text-block ${style.class}">
+                        <div>
+                            <strong>Devanagari / Hindi (हिन्दी):</strong><br>
+                            एल्वन सैंस एक आधुनिक टाइपफेस है जिसे निर्बाध टाइपोग्राफी के लिए डिज़ाइन किया गया है। 0123456789
+                        </div>
+                        <div>
+                            <strong>Bengali (বাংলা):</strong><br>
+                            এলভান সান্স একটি আধুনিক টাইপফেস যা নিখুঁত টাইপোগ্রাফির জন্য ডিজাইন করা হয়েছে। 0123456789
+                        </div>
+                    </div>
+
+                    <div class="mixed-text text-block ${style.class}">
+                        <div>
+                            <strong>Gujarati (ગુજરાતી):</strong><br>
+                            એલ્વન સેન્સ એ સીમલેસ ટાઇપોગ્રાફી માટે ડિઝાઇન કરાયેલ આધુનિક ટાઇપફેસ છે। 0123456789
+                        </div>
+                        <div>
+                            <strong>Kannada (ಕನ್ನಡ):</strong><br>
+                            ಎಲ್ವನ್ ಸ್ಯಾನ್ಸ್ ತಡೆರಹಿತ ಮುದ್ರಣಕಲೆಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಆಧುನಿಕ ಟೈಪ್‌ಫೇಸ್ ಆಗಿದೆ। 0123456789
+                        </div>
+                    </div>
+                    
+                    <div class="text-block ${style.class}" style="padding: 20px; background: #fafafa; border-radius: 8px;">
+                        <strong>Combined Passage:</strong><br>
+                        ${mixedPassage}
+                    </div>
+                `;
+
+                previewContainer.appendChild(section);
+            });
+        }
+
+        // Initialize
+        renderPreviews();
+
+        // Handle font size slider
+        sizeSlider.addEventListener('input', (e) => {
+            const size = e.target.value + 'px';
+            sizeValue.textContent = size;
+            const textBlocks = document.querySelectorAll('.text-block');
+            textBlocks.forEach(block => {
+                block.style.fontSize = size;
+            });
+        });
+
+        // Initial setup for default size
+        document.querySelectorAll('.text-block').forEach(block => {
+            block.style.fontSize = '24px';
+        });
+
+    </script>
+</body>
+
+</html>
