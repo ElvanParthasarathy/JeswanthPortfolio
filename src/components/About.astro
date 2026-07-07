@@ -3,6 +3,14 @@ import { Picture } from 'astro:assets';
 import editorPhoto from '../assets/editor-photo.png';
 ---
 <section id="about" class="py-32 relative overflow-hidden">
+    <!-- About Section Decor -->
+    <div class="absolute inset-0 pointer-events-none opacity-10 z-0">
+        <!-- Cassette -->
+        <svg class="absolute top-[20%] left-[10%] w-48 h-48 text-film-dark -rotate-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="0.5"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="8" cy="12" r="1.5"></circle><circle cx="16" cy="12" r="1.5"></circle><path d="M10 12h4"></path></svg>
+        <!-- Reel -->
+        <svg class="absolute bottom-[10%] right-[5%] w-72 h-72 text-film-dark rotate-[15deg] animate-[spin_40s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="0.5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle><circle cx="5" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle><path d="M12 7v10M7 12h10"></path></svg>
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative z-10">
         
         <!-- Left Panel: Profile Image Bento Box -->
