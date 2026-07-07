@@ -1,49 +1,44 @@
 ---
 ---
-<header class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-editor-bg" data-bg-color="#181818" data-text-color="#E0E0E0">
-    <!-- Playhead (Red Line) -->
-    <div class="absolute top-0 left-1/2 w-[2px] h-full bg-editor-red z-20 shadow-[0_0_10px_rgba(231,76,60,0.8)] mix-blend-screen"></div>
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-editor-red z-20 rounded-b-sm"></div>
+<header class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-film-bg">
+    
+    <!-- Vintage Grid Background (Solid, no glass blurs) -->
+    <div class="absolute inset-0 z-0 opacity-15" style="background-size: 40px 40px; background-image: linear-gradient(to right, var(--color-film-dark) 1px, transparent 1px), linear-gradient(to bottom, var(--color-film-dark) 1px, transparent 1px);"></div>
 
-    <!-- Timeline Grid Background -->
-    <div class="absolute inset-0 z-0 opacity-10" style="background-size: 50px 50px; background-image: linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px);"></div>
-
-    <!-- Timecode Counter -->
-    <div class="absolute top-10 left-10 z-20 font-mono text-xl md:text-2xl text-editor-accent font-bold tracking-widest bg-editor-panel px-4 py-2 border border-gray-700 rounded-sm shadow-lg">
-        [ <span id="timecode">00:00:00:00</span> ]
-    </div>
-
-    <!-- Metadata Overlay -->
-    <div class="absolute bottom-32 left-10 z-20 font-mono text-xs text-editor-muted flex flex-col gap-1">
-        <span>SEQ: MAIN_PORTFOLIO_V1</span>
-        <span>RES: 3840x2160</span>
-        <span>FPS: 23.976</span>
-    </div>
-
-    <!-- Main Typography -->
-    <div class="z-10 text-center space-y-6 editor-panel p-12 md:p-24 backdrop-blur-md bg-opacity-90 rounded-sm relative shadow-2xl">
-        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-editor-accent to-transparent"></div>
-        <h2 class="text-editor-muted tracking-[0.3em] text-sm md:text-base font-mono uppercase">Master Sequence</h2>
+    <!-- Main Typography Solid Panel -->
+    <div class="z-10 text-center space-y-6 film-panel-solid p-6 sm:p-12 md:p-20 relative max-w-4xl mx-4">
+        <!-- Film strip accents -->
+        <div class="absolute top-4 left-4 right-4 h-6 film-strip-border opacity-30 rotate-90 origin-left scale-x-[0.2]"></div>
         
-        <h1 class="text-5xl md:text-7xl font-primary font-bold leading-tight tracking-tight text-white drop-shadow-lg">
-            <span class="block reveal-text">Jeswanth</span>
-            <span class="block reveal-text font-tamil text-editor-muted text-4xl md:text-6xl mt-4 mb-4">என்கிற</span>
-            <span class="block reveal-text text-transparent bg-clip-text bg-gradient-to-r from-editor-accent to-blue-400">TJ Cutz</span>
+        <h2 class="text-film-accent tracking-[0.3em] text-xs md:text-sm font-mono uppercase font-bold reveal-text">
+            <span class="lang-en">Cinematic Editor</span>
+            <span class="lang-ta">திரைப்பட தொகுப்பாளர்</span>
+        </h2>
+        
+        <h1 class="font-primary font-bold leading-tight tracking-tighter text-film-dark flex flex-col items-center">
+            <span class="block text-5xl sm:text-6xl md:text-8xl reveal-text">
+                <span class="lang-en">JESWANTH S</span>
+                <span class="lang-ta">ஜெஸ்வந்த் எஸ்</span>
+            </span>
+            <span class="block text-film-muted text-xl md:text-2xl mt-4 mb-2 font-mono italic reveal-text">
+                <span class="lang-en">the</span>
+                <span class="lang-ta">என்கிற</span>
+            </span>
+            <span class="block text-2xl md:text-3xl tracking-widest uppercase text-film-accent reveal-text">TJ Cutz</span>
         </h1>
+        
+        <div class="mt-8 pt-6 border-t border-film-dark/20 reveal-text">
+            <p class="text-film-muted max-w-lg mx-auto text-sm md:text-base font-primary">
+                <span class="lang-en">Crafting visual stories with a modern retro twist.</span>
+                <span class="lang-ta">நவீன ரெட்ரோ பாணியில் காட்சி கதைகளை உருவாக்குதல்.</span>
+            </p>
+        </div>
     </div>
 
-    <!-- Timeline Tracks at Bottom -->
-    <div class="absolute bottom-0 w-full h-24 z-20 flex flex-col bg-editor-bg border-t border-gray-800">
-        <div class="w-full h-1/2 timeline-track flex items-center px-4 relative">
-            <div class="absolute left-0 top-0 h-full w-48 bg-editor-panel border-r border-gray-700 flex items-center px-4">
-                <span class="font-mono text-xs text-editor-muted font-bold">V1 [VIDEO]</span>
-            </div>
-        </div>
-        <div class="w-full h-1/2 timeline-track flex items-center px-4 relative border-t-0">
-            <div class="absolute left-0 top-0 h-full w-48 bg-editor-panel border-r border-gray-700 flex items-center px-4">
-                <span class="font-mono text-xs text-editor-muted font-bold">A1 [AUDIO]</span>
-            </div>
-        </div>
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 reveal-text delay-700">
+        <span class="text-[10px] font-mono tracking-widest text-film-muted uppercase">Scroll to Project</span>
+        <div class="w-[1px] h-12 bg-gradient-to-b from-film-accent to-transparent"></div>
     </div>
 </header>
 
@@ -52,40 +47,11 @@
     
     // TEXT REVEAL ANIMATIONS
     gsap.from(".reveal-text", {
-        y: 50,
+        y: 40,
         opacity: 0,
         duration: 1.2,
-        stagger: 0.3,
+        stagger: 0.15,
         ease: "power3.out",
-        delay: 0.5
+        delay: 0.2
     });
-
-    // TIMECODE ANIMATION
-    let frames = 0;
-    let seconds = 0;
-    let minutes = 0;
-    let hours = 0;
-    
-    const timecodeEl = document.getElementById('timecode');
-    
-    if (timecodeEl) {
-        setInterval(() => {
-            frames++;
-            if (frames >= 24) {
-                frames = 0;
-                seconds++;
-            }
-            if (seconds >= 60) {
-                seconds = 0;
-                minutes++;
-            }
-            
-            const f = frames.toString().padStart(2, '0');
-            const s = seconds.toString().padStart(2, '0');
-            const m = minutes.toString().padStart(2, '0');
-            const h = hours.toString().padStart(2, '0');
-            
-            timecodeEl.textContent = `${h}:${m}:${s}:${f}`;
-        }, 1000 / 24); // 24 fps simulation
-    }
 </script>

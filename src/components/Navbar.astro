@@ -1,22 +1,38 @@
 ---
 ---
-<nav class="fixed w-full top-0 z-50 px-4 py-2 bg-[#1E1E1E] border-b border-gray-700 shadow-lg font-mono text-xs">
-    <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-6">
-            <a href="#" class="text-white font-bold tracking-widest hover:text-editor-accent transition-colors flex items-center gap-2">
-                <svg class="w-4 h-4 text-editor-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-                TJ CUTZ / NLE
-            </a>
-            <div class="hidden md:flex space-x-4 text-editor-muted">
-                <a href="#" class="hover:text-white transition-colors px-2 py-1 hover:bg-gray-700 rounded-sm">File</a>
-                <a href="#work" class="hover:text-white transition-colors px-2 py-1 hover:bg-gray-700 rounded-sm">Edit</a>
-                <a href="#about" class="hover:text-white transition-colors px-2 py-1 hover:bg-gray-700 rounded-sm">View</a>
-                <a href="#contact" class="hover:text-white transition-colors px-2 py-1 hover:bg-gray-700 rounded-sm">Export</a>
-            </div>
+<div class="fixed w-full top-6 z-50 flex justify-center px-4 pointer-events-none">
+    <nav class="film-pill-solid px-6 py-3 flex items-center gap-6 md:gap-8 pointer-events-auto">
+        <a href="#" class="text-film-text font-bold tracking-tight hover:text-film-accent transition-colors flex items-center gap-2 font-primary">
+            <svg class="w-5 h-5 text-film-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+            <span class="text-sm">TJ CUTZ</span>
+        </a>
+        <div class="h-4 w-[1px] bg-film-dark/20 hidden md:block"></div>
+        <a href="#about" class="text-xs font-mono uppercase tracking-widest text-film-muted hover:text-film-text transition-colors hidden md:block">About</a>
+        <a href="#projects" class="text-xs font-mono uppercase tracking-widest text-film-muted hover:text-film-text transition-colors hidden md:block">Screenings</a>
+        <a href="#contact" class="text-xs font-mono uppercase tracking-widest text-film-muted hover:text-film-text transition-colors hidden md:block">Contact</a>
+        <div class="h-4 w-[1px] bg-film-dark/20 hidden md:block"></div>
+        <button id="langToggleBtn" class="text-xs font-mono font-bold text-film-accent hover:text-film-text transition-colors flex items-center gap-1">
+            <span class="lang-en text-film-text">EN</span>
+            <span class="lang-en text-film-muted">/</span>
+            <span class="lang-en text-film-muted">TA</span>
+            
+            <span class="lang-ta text-film-muted">EN</span>
+            <span class="lang-ta text-film-muted">/</span>
+            <span class="lang-ta text-film-text">TA</span>
+        </button>
+        <div class="flex items-center gap-2 pl-4 border-l border-white/30">
+            <div class="w-2 h-2 rounded-full bg-film-accent animate-pulse shadow-[0_0_8px_var(--color-film-accent)]"></div>
+            <span class="text-xs text-film-dark font-mono tracking-widest uppercase">Live</span>
         </div>
-        <div class="flex items-center gap-4 text-editor-muted">
-            <span class="hidden md:block">Workspace: Portfolio</span>
-            <div class="w-2 h-2 rounded-full bg-editor-accent animate-pulse"></div>
-        </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
+<script>
+    const btn = document.getElementById('langToggleBtn');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            // @ts-ignore
+            if (window.toggleLanguage) window.toggleLanguage();
+        });
+    }
+</script>

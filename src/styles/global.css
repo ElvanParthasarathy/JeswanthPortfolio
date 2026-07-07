@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'ElvanSans';
+  src: url('/fonts/ElvanSans/fonts/ttf/ElvanSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ElvanSans';
+  src: url('/fonts/ElvanSans/fonts/ttf/ElvanSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 @theme {
-  --font-primary: 'Inter', sans-serif;
+  --font-primary: 'ElvanSans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-tamil: 'Mukta Malar', sans-serif;
+  --font-tamil: 'ElvanSans', sans-serif; /* ElvanSans supports Tamil */
   
-  --color-editor-bg: #181818;
-  --color-editor-panel: #252526;
-  --color-editor-accent: #2D8CFF;
-  --color-editor-red: #E74C3C;
-  --color-editor-text: #E0E0E0;
-  --color-editor-muted: #858585;
+  /* Warm Retro Film Tone Colors */
+  --color-film-bg: #EAE6DF;       /* Sand/light cream */
+  --color-film-panel: #D8D2C4;    /* Slightly darker sand */
+  --color-film-dark: #3A3226;     /* Deep brown */
+  --color-film-text: #2B251A;     /* Very dark brown/almost black */
+  --color-film-accent: #C46D3B;   /* Warm burnt orange/amber */
+  --color-film-muted: #8E8271;    /* Earthy grayish brown */
 }
 
 body {
-  background-color: var(--color-editor-bg);
-  color: var(--color-editor-text);
+  background-color: var(--color-film-bg);
+  color: var(--color-film-text);
   overflow-x: hidden;
   font-family: var(--font-primary);
+  scroll-behavior: smooth;
 }
 
-/* CUSTOM CURSOR STYLES (Keep the smooth dot but style it red) */
+/* Language Toggle Utilities */
+body[data-lang="en"] .lang-ta { display: none !important; }
+body[data-lang="ta"] .lang-en { display: none !important; }
+
+/* CUSTOM CURSOR STYLES (styled warm amber) */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -29,28 +49,68 @@ body {
   border-radius: 50%;
   z-index: 9999;
   pointer-events: none;
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-editor-red);
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-film-accent);
+  box-shadow: 0 0 10px var(--color-film-accent);
+  transition: width 0.2s, height 0.2s;
 }
 
-/* UTILITIES */
-.editor-panel {
-  background-color: var(--color-editor-panel);
-  border: 1px solid #333;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+.film-panel-solid {
+  background-color: var(--color-film-bg);
+  border: 1px solid var(--color-film-dark);
+  box-shadow: 4px 4px 0px var(--color-film-dark);
 }
 
-.timeline-track {
+.film-pill-solid {
+  background-color: var(--color-film-bg);
+  border: 1px solid var(--color-film-dark);
+  border-radius: 9999px;
+  box-shadow: 2px 2px 0px var(--color-film-dark);
+}
+
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Skeuomorphic Real Film Strip */
+.real-film-strip {
+  background-color: #141414;
+  border-top: 2px solid #2a2a2a;
+  border-bottom: 2px solid #2a2a2a;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 40px rgba(0,0,0,0.9);
+}
+
+.film-hole {
+  background-color: var(--color-film-bg);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.9), 0 1px 1px rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+/* Apple-like soft drop shadow */
+.shadow-soft {
+  box-shadow: 0 20px 40px rgba(58, 50, 38, 0.08), 0 1px 3px rgba(58, 50, 38, 0.05);
+}
+
+/* Film strip border decoration */
+.film-strip-border {
   background: repeating-linear-gradient(
-    90deg,
+    to bottom,
     transparent,
-    transparent 49px,
-    rgba(133, 133, 133, 0.2) 49px,
-    rgba(133, 133, 133, 0.2) 50px
+    transparent 10px,
+    var(--color-film-dark) 10px,
+    var(--color-film-dark) 20px
   );
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  width: 12px;
 }
 
 /* End of global styles */

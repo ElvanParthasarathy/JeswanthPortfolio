@@ -1,52 +1,90 @@
 ---
 import videos from '../data/videos.json';
 ---
-<section id="work" class="py-32 px-6 relative editor-panel mx-2 my-20 rounded-lg shadow-2xl" data-bg-color="#181818" data-text-color="#E0E0E0">
-    <div class="max-w-7xl mx-auto">
-        <!-- Panel Header -->
-        <div class="flex items-center justify-between mb-12 border-b border-gray-700 pb-4">
-            <div class="flex items-center gap-4">
-                <div class="flex gap-2">
-                    <div class="w-3 h-3 rounded-full bg-editor-red"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-primary font-bold tracking-tight text-white">Project Bin: <span class="text-editor-accent">THEATRE_SCREENINGS</span></h2>
-            </div>
-            <p class="hidden md:block font-mono text-sm text-editor-muted">ITEMS: {videos.length}</p>
+<section id="work" class="py-32 px-4 md:px-12 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="mb-20 text-center md:text-left">
+            <h2 class="text-4xl md:text-5xl font-primary font-bold tracking-tight text-film-dark mb-4">Theatre Screenings</h2>
+            <p class="font-mono text-sm text-film-muted uppercase tracking-widest">A Collection of Live Cuts // Items: {videos.length}</p>
         </div>
 
-        <!-- Video Grid / Media Pool -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <!-- Dynamic Film Strip Container -->
+        <!-- Dynamic Film Strip Container -->
+        <div class="film-strip-container relative space-y-16 md:space-y-32 mt-12">
             {videos.map((video, index) => (
-                <div class="group project-card cursor-none bg-[#1E1E1E] border border-gray-700 rounded-sm overflow-hidden hover:border-editor-accent transition-colors duration-300">
-                    <!-- Video Container -->
-                    <div class="aspect-video w-full relative play-trigger bg-black overflow-hidden flex items-center justify-center">
-                        <!-- We use actual video tag pointing to the URL -->
-                        <video 
-                            src={video.video_url} 
-                            class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
-                            muted 
-                            loop 
-                            playsinline
-                            onmouseover="this.play()" 
-                            onmouseout="this.pause()">
-                        </video>
-                        <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-1 rounded-sm border border-gray-700 font-mono text-[10px] text-editor-muted">
-                            [ {video.date} ]
-                        </div>
-                    </div>
+                <div class="project-card relative w-full md:w-[95%] lg:w-[90%] mx-auto">
                     
-                    <!-- Clip Metadata -->
-                    <div class="p-4 bg-[#252526] border-t border-gray-700">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-primary font-bold text-white leading-tight uppercase">{video.title}</h3>
-                            <span class="font-mono text-[10px] text-editor-accent bg-editor-accent/10 px-2 py-1 rounded-sm">{video.event}</span>
+                    <!-- Masking Tape Skeuomorphism -->
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-[#e9e5ce] opacity-90 rotate-[-3deg] shadow-sm flex items-center justify-center font-mono text-[11px] text-gray-600 z-20 border-l-4 border-r-4 border-white/40" style="clip-path: polygon(2% 0, 98% 2%, 100% 100%, 0 95%);">
+                        <span class="opacity-80">RAW CUT {index + 1}</span>
+                    </div>
+
+                    <div class="real-film-strip p-6 md:p-8 rounded-[1rem] transition-transform duration-500 relative group overflow-hidden flex flex-col md:flex-row gap-6 md:gap-10 items-center">
+                        
+                        <!-- Left Film Perforations (Sprocket Holes) -->
+                        <div class="absolute left-2 top-0 bottom-0 w-6 flex flex-col justify-around py-4 opacity-90 hidden sm:flex">
+                            {[...Array(10)].map(() => <div class="w-4 h-6 film-hole"></div>)}
                         </div>
-                        <div class="flex items-center gap-2 mt-3 text-editor-muted font-mono text-xs">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span class="truncate">{video.theatre}</span>
+                        
+                        <!-- Right Film Perforations (Sprocket Holes) -->
+                        <div class="absolute right-2 top-0 bottom-0 w-6 flex flex-col justify-around py-4 opacity-90 hidden md:flex">
+                            {[...Array(10)].map(() => <div class="w-4 h-6 film-hole"></div>)}
                         </div>
+                        
+                        <!-- Video Container (4K Controllable Player) -->
+                        <div class="custom-video-player w-full md:w-[65%] aspect-video relative rounded border border-[#333] shadow-2xl bg-black sm:ml-8 md:ml-10 z-10 overflow-hidden group">
+                            <video 
+                                src={video.video_url} 
+                                class="w-full h-full object-contain" 
+                                preload="metadata"
+                                loop
+                                playsinline
+                                muted>
+                            </video>
+                            
+                            <!-- Custom Retro Controls -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <!-- Progress Bar (Film Strip style) -->
+                                <div class="w-full h-1.5 md:h-2 bg-[#333] rounded-full overflow-hidden cursor-pointer relative progress-container shadow-inner">
+                                    <div class="h-full bg-film-accent w-0 progress-bar pointer-events-none"></div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between mt-1">
+                                    <div class="flex items-center gap-3 md:gap-4">
+                                        <!-- Play/Pause Btn -->
+                                        <button class="play-pause-btn text-white hover:text-film-accent transition-colors focus:outline-none cursor-pointer">
+                                            <svg class="w-5 h-5 md:w-6 md:h-6 play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                            <svg class="w-5 h-5 md:w-6 md:h-6 pause-icon hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                        </button>
+                                        
+                                        <!-- Time -->
+                                        <span class="text-[10px] md:text-xs font-mono text-[#aaa] time-display">0:00 / 0:00</span>
+                                    </div>
+                                    
+                                    <!-- Mute/Unmute Btn -->
+                                    <button class="mute-btn text-white hover:text-film-accent transition-colors focus:outline-none cursor-pointer">
+                                        <svg class="w-4 h-4 md:w-5 md:h-5 volume-off" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                                        <svg class="w-4 h-4 md:w-5 md:h-5 volume-on hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Metadata (Light text on dark film strip) -->
+                        <div class="w-full md:w-[35%] space-y-4 md:pr-12 text-[#e0e0e0] z-10 px-2 md:px-0">
+                            <div class="flex items-center gap-4">
+                                <span class="inline-block font-mono text-[10px] text-film-bg bg-film-bg/10 border border-film-bg/30 px-3 py-1 rounded-sm">{video.event}</span>
+                                <span class="font-mono text-[10px] text-[#888]">{video.date}</span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-primary font-bold text-white leading-tight">{video.title}</h3>
+                            
+                            <div class="flex items-start gap-3 mt-4 text-[#aaa] font-primary">
+                                <svg class="w-5 h-5 mt-0.5 text-[#888]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span class="text-sm md:text-base leading-relaxed">{video.theatre}</span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             ))}
@@ -60,19 +98,127 @@ import videos from '../data/videos.json';
     
     gsap.registerPlugin(ScrollTrigger);
     
-    // PROJECT CARD FADE IN
+    // DYNAMIC FILM STRIP SCROLL ANIMATION
     const projects = document.querySelectorAll('.project-card');
-    projects.forEach((project, i) => {
-        gsap.from(project, {
-            scrollTrigger: {
-                trigger: project,
-                start: "top 85%",
-                toggleActions: "play none none reverse"
+    
+    projects.forEach((project) => {
+        // Simple fade and slide in when scrolling down
+        gsap.fromTo(project, 
+            { 
+                y: 100, 
+                opacity: 0,
+                scale: 0.95
             },
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            delay: i % 2 === 0 ? 0 : 0.1
+            {
+                scrollTrigger: {
+                    trigger: project,
+                    start: "top 95%",
+                    end: "top 60%", 
+                    scrub: 1, 
+                },
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                ease: "power2.out"
+            }
+        );
+    });
+
+    // CUSTOM VIDEO PLAYER LOGIC & AUTOPLAY
+    const players = document.querySelectorAll('.custom-video-player');
+
+    players.forEach(player => {
+        const video = player.querySelector('video') as HTMLVideoElement;
+        const playPauseBtn = player.querySelector('.play-pause-btn');
+        const playIcon = player.querySelector('.play-icon');
+        const pauseIcon = player.querySelector('.pause-icon');
+        const muteBtn = player.querySelector('.mute-btn');
+        const volOn = player.querySelector('.volume-on');
+        const volOff = player.querySelector('.volume-off');
+        const progressBar = player.querySelector('.progress-bar') as HTMLElement;
+        const progressContainer = player.querySelector('.progress-container') as HTMLElement;
+        const timeDisplay = player.querySelector('.time-display');
+        
+        // Format time helper
+        const formatTime = (time: number) => {
+            if (isNaN(time)) return "0:00";
+            const min = Math.floor(time / 60);
+            const sec = Math.floor(time % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        };
+
+        // Play / Pause logic
+        const togglePlay = () => {
+            if(video.paused) {
+                video.play().catch(e => console.log(e));
+            } else {
+                video.pause();
+            }
+        };
+        
+        playPauseBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            togglePlay();
+        });
+        
+        // Allow clicking the video itself to toggle play
+        video.addEventListener('click', togglePlay);
+        
+        video.addEventListener('play', () => {
+            playIcon?.classList.add('hidden');
+            pauseIcon?.classList.remove('hidden');
+        });
+        
+        video.addEventListener('pause', () => {
+            playIcon?.classList.remove('hidden');
+            pauseIcon?.classList.add('hidden');
+        });
+        
+        // Time & Progress update
+        video.addEventListener('timeupdate', () => {
+            const percent = (video.currentTime / video.duration) * 100;
+            if(progressBar) progressBar.style.width = `${percent}%`;
+            if(timeDisplay) timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+        });
+        
+        // Seek logic
+        progressContainer?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / progressContainer.offsetWidth;
+            video.currentTime = pos * video.duration;
+        });
+        
+        // Mute logic
+        muteBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            video.muted = !video.muted;
+            if(video.muted) {
+                volOn?.classList.add('hidden');
+                volOff?.classList.remove('hidden');
+            } else {
+                volOn?.classList.remove('hidden');
+                volOff?.classList.add('hidden');
+            }
+        });
+
+        // Scroll Auto-Play Logic
+        ScrollTrigger.create({
+            trigger: player,
+            start: "top 70%",
+            end: "bottom 30%",
+            onEnter: () => {
+                video.play().catch(() => console.log("Autoplay blocked by browser."));
+            },
+            onLeave: () => {
+                video.pause();
+            },
+            onEnterBack: () => {
+                video.play().catch(() => console.log("Autoplay blocked by browser."));
+            },
+            onLeaveBack: () => {
+                video.pause();
+            }
         });
     });
 </script>
