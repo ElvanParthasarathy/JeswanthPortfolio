@@ -19,13 +19,13 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-tamil: 'ElvanSans', sans-serif; /* ElvanSans supports Tamil */
   
-  /* Warm Retro Film Tone Colors - Darker Vibe */
-  --color-film-bg: #1A1410;       /* Deep coffee/espresso brown */
-  --color-film-panel: #2C2218;    /* Dark charcoal brown */
-  --color-film-dark: #F5EBE1;     /* Inverted to light cream for text borders on dark bg */
-  --color-film-text: #EAE6DF;     /* Light cream/sand for text */
-  --color-film-accent: #E67E22;   /* Vibrant glowing amber/orange */
-  --color-film-muted: #A69B8D;    /* Earthy grayish sand */
+  /* Warm Retro Film Tone Colors */
+  --color-film-bg: #EAE6DF;       /* Sand/light cream */
+  --color-film-panel: #D8D2C4;    /* Slightly darker sand */
+  --color-film-dark: #3A3226;     /* Deep brown */
+  --color-film-text: #2B251A;     /* Very dark brown/almost black */
+  --color-film-accent: #C46D3B;   /* Warm burnt orange/amber */
+  --color-film-muted: #8E8271;    /* Earthy grayish brown */
 }
 
 @layer utilities {
