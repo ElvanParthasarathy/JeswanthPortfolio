@@ -48,8 +48,9 @@ import videos from '../data/videos.json';
                                 <div class="custom-video-player w-full h-full relative">
                                     <video 
                                         src={video.video_url} 
+                                        poster={video.poster_url}
                                         class="w-full h-full object-contain" 
-                                        preload="metadata"
+                                        preload="none"
                                         loop
                                         playsinline
                                         muted>

@@ -4,7 +4,8 @@
     "title": "Sachien Re-release",
     "theatre": "Chennai Ega Cinemas",
     "event": "Re-release Celebration",
-    "video_url": "/videos/sachein_mashup_web.mp4",
+    "video_url": "/videos/sachein_mashup_web_opt.mp4",
+    "poster_url": "/videos/sachein_mashup_web_poster.jpg",
     "date": "2026"
   },
   {
@@ -12,7 +13,8 @@
     "title": "Vijay Birthday Mashup 2026",
     "theatre": "Screened in Russia, Chennai Ganga, Kangeyam Anand, Madurai Ritzy, Karnataka Sandhya, Tirunelveli Grand Muthram, Gobichettipalayam Jayam",
     "event": "Mega Birthday Celebration",
-    "video_url": "/videos/vijay_bday_2026_web.mp4",
+    "video_url": "/videos/vijay_bday_2026_web_opt.mp4",
+    "poster_url": "/videos/vijay_bday_2026_web_poster.jpg",
     "date": "2026"
   },
   {
@@ -20,7 +22,8 @@
     "title": "Vijay B'day Mashup 2025",
     "theatre": "Chennai Ganga Cinemas",
     "event": "Birthday Celebration",
-    "video_url": "/videos/vijay_bday_2025_web.mp4",
+    "video_url": "/videos/vijay_bday_2025_web_opt.mp4",
+    "poster_url": "/videos/vijay_bday_2025_web_poster.jpg",
     "date": "2025"
   },
   {
@@ -28,7 +31,8 @@
     "title": "Madharasi SK Mashup",
     "theatre": "Tirupur MGB Grand Cinema",
     "event": "Madharasi Movie Screening",
-    "video_url": "/videos/sk_mashup_web.mp4",
+    "video_url": "/videos/sk_mashup_web_opt.mp4",
+    "poster_url": "/videos/sk_mashup_web_poster.jpg",
     "date": "2026"
   },
   {
@@ -36,7 +40,8 @@
     "title": "New Year Celebration VJ Mashup 2026",
     "theatre": "Cleopatra Tuticorin & Ritzy Madurai",
     "event": "New Year Celebration",
-    "video_url": "/videos/vijay_newyear_mashup_web.mp4",
+    "video_url": "/videos/vijay_newyear_mashup_web_opt.mp4",
+    "poster_url": "/videos/vijay_newyear_mashup_web_poster.jpg",
     "date": "2026"
   }
 ]
