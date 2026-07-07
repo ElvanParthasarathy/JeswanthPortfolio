@@ -35,14 +35,19 @@ const { title } = Astro.props;
 			// Language Toggle Logic
 			import en from '../data/en.json';
 			import ta from '../data/ta.json';
-			const dict: Record<string, Record<string, string>> = { en, ta };
+			import ta_latn from '../data/ta_latn.json';
+			const dict: Record<string, Record<string, string>> = { en, ta, ta_latn };
 
 			const savedLang = localStorage.getItem('portfolio-lang') || 'en';
 			document.body.setAttribute('data-lang', savedLang);
 
 			window.toggleLanguage = () => {
 				const currentLang = document.body.getAttribute('data-lang');
-				const newLang = currentLang === 'en' ? 'ta' : 'en';
+				let newLang = 'en';
+				if (currentLang === 'en') newLang = 'ta';
+				else if (currentLang === 'ta') newLang = 'ta_latn';
+				else if (currentLang === 'ta_latn') newLang = 'en';
+				
 				document.body.setAttribute('data-lang', newLang);
 				localStorage.setItem('portfolio-lang', newLang);
 				document.dispatchEvent(new CustomEvent('languageChanged', { detail: newLang }));

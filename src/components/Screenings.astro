@@ -32,43 +32,54 @@ import videos from '../data/videos.json';
                             {[...Array(10)].map(() => <div class="w-4 h-6 film-hole"></div>)}
                         </div>
                         
-                        <!-- Video Container (4K Controllable Player) -->
-                        <div class="custom-video-player w-full md:w-[65%] aspect-video relative rounded border border-[#333] shadow-2xl bg-black sm:ml-8 md:ml-10 z-10 overflow-hidden group">
-                            <video 
-                                src={video.video_url} 
-                                class="w-full h-full object-contain" 
-                                preload="metadata"
-                                loop
-                                playsinline
-                                muted>
-                            </video>
-                            
-                            <!-- Custom Retro Controls -->
-                            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <!-- Progress Bar (Film Strip style) -->
-                                <div class="w-full h-1.5 md:h-2 bg-[#333] rounded-full overflow-hidden cursor-pointer relative progress-container shadow-inner">
-                                    <div class="h-full bg-film-accent w-0 progress-bar pointer-events-none"></div>
-                                </div>
-                                
-                                <div class="flex items-center justify-between mt-1">
-                                    <div class="flex items-center gap-3 md:gap-4">
-                                        <!-- Play/Pause Btn -->
-                                        <button class="play-pause-btn text-white hover:text-film-accent transition-colors focus:outline-none cursor-pointer">
-                                            <svg class="w-5 h-5 md:w-6 md:h-6 play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                            <svg class="w-5 h-5 md:w-6 md:h-6 pause-icon hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                                        </button>
-                                        
-                                        <!-- Time -->
-                                        <span class="text-[10px] md:text-xs font-mono text-[#aaa] time-display">0:00 / 0:00</span>
-                                    </div>
+                        <!-- Video Container / Placeholder -->
+                        <div class="w-full md:w-[65%] aspect-video relative rounded border border-[#333] shadow-2xl bg-black sm:ml-8 md:ml-10 z-10 overflow-hidden group">
+                            {video.video_url ? (
+                                <div class="custom-video-player w-full h-full relative">
+                                    <video 
+                                        src={video.video_url} 
+                                        class="w-full h-full object-contain" 
+                                        preload="metadata"
+                                        loop
+                                        playsinline
+                                        muted>
+                                    </video>
                                     
-                                    <!-- Mute/Unmute Btn -->
-                                    <button class="mute-btn text-white hover:text-film-accent transition-colors focus:outline-none cursor-pointer">
-                                        <svg class="w-4 h-4 md:w-5 md:h-5 volume-off" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                                        <svg class="w-4 h-4 md:w-5 md:h-5 volume-on hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-                                    </button>
+                                    <!-- Custom Retro Controls -->
+                                    <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <!-- Progress Bar (Film Strip style) -->
+                                        <div class="w-full h-1.5 md:h-2 bg-[#333] rounded-full overflow-hidden cursor-pointer relative progress-container shadow-inner">
+                                            <div class="h-full bg-film-accent w-0 progress-bar pointer-events-none"></div>
+                                        </div>
+                                        
+                                        <div class="flex items-center justify-between mt-1">
+                                            <div class="flex items-center gap-3 md:gap-4">
+                                                <!-- Play/Pause Btn -->
+                                                <button class="play-pause-btn text-white hover:text-film-accent transition-colors focus:outline-none cursor-pointer">
+                                                    <svg class="w-5 h-5 md:w-6 md:h-6 play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                                    <svg class="w-5 h-5 md:w-6 md:h-6 pause-icon hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                                </button>
+                                                
+                                                <!-- Time -->
+                                                <span class="text-[10px] md:text-xs font-mono text-[#aaa] time-display">0:00 / 0:00</span>
+                                            </div>
+                                            
+                                            <!-- Mute/Unmute Btn -->
+                                            <button class="mute-btn text-white hover:text-film-accent transition-colors focus:outline-none cursor-pointer">
+                                                <svg class="w-4 h-4 md:w-5 md:h-5 volume-off" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                                                <svg class="w-4 h-4 md:w-5 md:h-5 volume-on hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div class="w-full h-full flex flex-col items-center justify-center bg-[#111] relative border-2 border-dashed border-[#444] rounded">
+                                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTExIj48L3JlY3Q+CjxnIGZpbGw9IiMyMjIiPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4PSIwIiB5PSIwIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHg9IjIiIHk9IjIiPjwvcmVjdD4KPC9nPgo8L3N2Zz4=')] opacity-30 pointer-events-none"></div>
+                                    <svg class="w-12 h-12 text-film-accent mb-4 glow-retro-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    <span class="text-film-accent font-mono text-sm tracking-widest uppercase border border-film-accent/30 bg-film-accent/10 px-4 py-1 rounded glow-retro">Tape Missing</span>
+                                    <span class="text-[#888] font-mono text-[10px] mt-2 uppercase tracking-widest">Awaiting Footage</span>
+                                </div>
+                            )}
                         </div>
                         
                         <!-- Metadata (Light text on dark film strip) -->
@@ -129,6 +140,8 @@ import videos from '../data/videos.json';
 
     players.forEach(player => {
         const video = player.querySelector('video') as HTMLVideoElement;
+        if (!video) return; // Skip if it's just a placeholder
+
         const playPauseBtn = player.querySelector('.play-pause-btn');
         const playIcon = player.querySelector('.play-icon');
         const pauseIcon = player.querySelector('.pause-icon');
